@@ -1,0 +1,1 @@
+ghcr.io/viencent27/item-app:v1
