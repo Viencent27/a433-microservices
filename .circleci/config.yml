@@ -26,9 +26,15 @@ jobs:
   # Untuk build dan push image
   build-app-karsajobs-ui:
     docker:
-      - image: docker:latest
+      - image: cimg/base:stable
+        auth:
+          username: viencent
+          password: $PASSWORD_DOCKER_HUB
     steps:
       - checkout
+      - setup_remote_docker:
+          version: 20.10.14
+          docker_layer_caching: true
       - run:
           name: Execute build_push_image_karsajobs-ui.sh
           command: |
