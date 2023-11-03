@@ -34,3 +34,10 @@ jobs:
           command: |
             chmod +x build_push_image_karsajobs-ui.sh
             ./build_push_image_karsajobs-ui.sh
+# Orchestrate jobs using workflows
+# See: https://circleci.com/docs/configuration-reference/#workflows
+workflows:
+  karsajobs-ui:
+    jobs:
+      - lint-dockerfile
+      - build-app-karsajobs-ui
