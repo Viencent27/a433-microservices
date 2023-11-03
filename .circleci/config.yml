@@ -36,10 +36,10 @@ jobs:
           version: 20.10.14
           docker_layer_caching: true
       - run:
-          name: Execute build_push_image_karsajobs-ui.sh
+          name: Execute build_push_image_karsajobs_ui.sh
           command: |
-            chmod +x build_push_image_karsajobs-ui.sh
-            ./build_push_image_karsajobs-ui.sh
+            chmod +x build_push_image_karsajobs_ui.sh
+            ./build_push_image_karsajobs_ui.sh
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
