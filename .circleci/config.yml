@@ -42,7 +42,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker:
-          version: 24.0.7
+          version: 20.10.14
           docker_layer_caching: true
       - run:
           name: Execute build_push_image_karsajobs.sh
