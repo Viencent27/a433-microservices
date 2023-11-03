@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-# HOW TO RUN : . ./build_push_image_karsajobs.sh
+# HOW TO RUN : ./build_push_image_karsajobs.sh
 # Membuat docker image dengan nama <username-docker>/karsajobs dan tag latest
 docker build -t viencent/karsajobs:latest .
 
