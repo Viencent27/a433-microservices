@@ -35,16 +35,20 @@ jobs:
   # Untuk build dan push image
   build-app-karsajobs:
     docker:
-      - image: docker:latest
+      - image: cimg/base:stable
+        auth:
+          username: viencent
+          password: $PASSWORD_DOCKER_HUB
     steps:
       - checkout
+      - setup_remote_docker:
+          version: 24.0.7
+          docker_layer_caching: true
       - run:
-          name: build dan push image
+          name: Execute build_push_image_karsajobs.sh
           command: |
-            docker build -t viencent/karsajobs:latest .
-            docker tag viencent/karsajobs:latest ghcr.io/viencent27/karsajobs:latest
-            echo $TOKEN_GITHUB_PACKAGES | docker login ghcr.io --username viencent27 --password-stdin
-            docker push ghcr.io/viencent27/karsajobs:latest
+            chmod +x build_push_image_karsajobs.sh
+            ./build_push_image_karsajobs.sh
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
